@@ -5,8 +5,12 @@
 
 module.exports = {
   Query: {
-      pets (_, __, {models}){
-        return models.Pet.findMany()
+      pets (_, {input}, {models}){
+        throw new Error("personal error")
+        return models.Pet.findMany().filter( pet => pet.name === input.name)
+      },
+      pet (_, {input}, {models}){
+
       }
     
   }
