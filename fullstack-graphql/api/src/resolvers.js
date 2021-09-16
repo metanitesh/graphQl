@@ -6,13 +6,20 @@
 module.exports = {
   Query: {
       pets (_, {input}, {models}){
-        throw new Error("personal error")
-        return models.Pet.findMany().filter( pet => pet.name === input.name)
+        // throw new Error("personal error")
+        return models.Pet.findMany()
       },
       pet (_, {input}, {models}){
 
       }
     
+  },
+
+  Mutation : {
+    addPet(_, {input}, {models}){
+      return models.Pet.create(input)
+      
+    }
   }
   
 }
